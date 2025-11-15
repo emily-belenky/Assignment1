@@ -59,7 +59,7 @@ Content-Type: application/json
 ################################################################################################
 
 ### Create new comment (Dotan)
-POST {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+POST {{baseUrl}}/comments/6918a228d4e3d6225a4e2793
 Content-Type: application/json
 
 {
@@ -81,6 +81,11 @@ Content-Type: application/json
 ###
 
 ### Get all comments for a post
-GET {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+GET {{baseUrl}}/comments?postId=6918a228d4e3d6225a4e2793
+
+###
+
+### Get comment by id
+GET {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
 
 ###
