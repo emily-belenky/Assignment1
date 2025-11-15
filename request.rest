@@ -1,0 +1,52 @@
+@baseUrl = http://localhost:3000
+
+################################
+### POSTS – Emily
+################################
+
+### Create new post (Emily)
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "sender": "Emily",
+  "message": "This is my first post"
+}
+
+###
+
+### Create another post (Dotan)
+POST {{baseUrl}}/posts
+Content-Type: application/json
+
+{
+  "sender": "Dotan",
+  "message": "Hello from Dotan"
+}
+
+###
+
+### Get all posts
+GET {{baseUrl}}/posts
+
+###
+
+### Get posts by Emily
+GET {{baseUrl}}/posts?sender=Emily
+
+###
+
+### Get post by id
+# replace with a real id from one of the create responses
+GET {{baseUrl}}/posts/SOME_ID
+
+###
+
+### Update post (change message by Emily)
+PUT {{baseUrl}}/posts/SOME_ID
+Content-Type: application/json
+
+{
+  "sender": "Emily",
+  "message": "Updated message from Emily"
+}
