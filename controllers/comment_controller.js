@@ -51,9 +51,43 @@ const getCommentById = async (req, res) => {
     }
 }
 
+const updateComment = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const { sender, message } = req.body;
 
+        if (!sender || !message) {
+            return res.status(400).json({ error: "sender and message are required" });
+        }
+
+        const updatedComment = await Comment.findByIdAndUpdate(id, { sender, message }, { new: true });
+        if (!updatedComment) {
+            return res.status(404).json({ error: "comment not found" });
+        }
+        res.json(updatedComment);
+    } catch (err) {
+        console.error("updateComment error:", err);
+        res.status(500).json({ error: "server error" });
+    }
+}
+
+const deleteComment = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const deletedComment = await Comment.findByIdAndDelete(id);
+        if (!deletedComment) {
+            return res.status(404).json({ error: "comment not found" });
+        }
+        res.json({ message: "comment deleted successfully" });
+    } catch (err) {
+        console.error("deleteComment error:", err);
+        res.status(500).json({ error: "server error" });
+    }
+}
 module.exports = {
     createComment,
     getAllComments,
-    getCommentById
+    getCommentById,
+    updateComment,
+    deleteComment
 }

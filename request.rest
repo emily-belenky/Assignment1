@@ -89,3 +89,19 @@ GET {{baseUrl}}/comments?postId=6918a228d4e3d6225a4e2793
 GET {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
 
 ###
+
+### Update comment (change message by Dotan)
+PUT {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
+Content-Type: application/json
+
+{
+  "sender": "Dotan",
+  "message": "Updated message from Dotan"
+}
+
+###
+
+### Delete comment (Dotan)
+DELETE {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
+
+###
