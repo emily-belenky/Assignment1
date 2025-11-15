@@ -1,8 +1,8 @@
 @baseUrl = http://localhost:3000
 
-################################
+################################################################################################
 ### POSTS – Emily
-################################
+################################################################################################
 
 ### Create new post (Emily)
 POST {{baseUrl}}/posts
@@ -50,3 +50,37 @@ Content-Type: application/json
   "sender": "Emily",
   "message": "Updated message from Emily"
 }
+
+
+
+
+################################################################################################
+### COMMENTS – Dotan
+################################################################################################
+
+### Create new comment (Dotan)
+POST {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+Content-Type: application/json
+
+{
+  "sender": "Dotan",
+  "message": "This is my first comment"
+}
+
+###
+
+### Create another comment (Emily)
+POST {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+Content-Type: application/json
+
+{
+  "sender": "Emily",
+  "message": "This is my second comment"
+}
+
+###
+
+### Get all comments for a post
+GET {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+
+###

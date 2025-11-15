@@ -20,9 +20,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 const postsRoute = require("./routes/posts_route");
-// comments route will be added later by Dotan
+const commentRouter = require("./routes/comments_route");
 
 app.use("/posts", postsRoute);
+app.use("/comments", commentRouter);
 
 app.get("/", (req, res) => {
   res.send("Assignment1 API is running");

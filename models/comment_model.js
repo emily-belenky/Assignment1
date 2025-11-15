@@ -3,7 +3,7 @@ const { Schema, model } = require("mongoose");
 const commentSchema = new Schema({
     postId: {
         type: Schema.Types.ObjectId,
-        ref: "Post",
+        ref: "Post", // reference to the Post model from the post_model.js file
         required: true
     },
     sender: {
@@ -16,8 +16,9 @@ const commentSchema = new Schema({
         required: true,
         trim: true
     }
-}, {
-    timestamps: true
-});
+    }, 
+    {
+        timestamps: true
+    });
 
 module.exports = model("Comment", commentSchema);
