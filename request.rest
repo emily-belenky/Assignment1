@@ -38,12 +38,12 @@ GET {{baseUrl}}/posts?sender=Emily
 
 ### Get post by id
 # replace with a real id from one of the create responses
-GET {{baseUrl}}/posts/SOME_ID
+GET {{baseUrl}}/posts/691884fdf382a01bfec990f4
 
 ###
 
 ### Update post (change message by Emily)
-PUT {{baseUrl}}/posts/SOME_ID
+PUT {{baseUrl}}/posts/691884fdf382a01bfec990f4
 Content-Type: application/json
 
 {
