@@ -1,8 +1,8 @@
 @baseUrl = http://localhost:3000
 
-################################
+################################################################################################
 ### POSTS – Emily
-################################
+################################################################################################
 
 ### Create new post (Emily)
 POST {{baseUrl}}/posts
@@ -38,15 +38,70 @@ GET {{baseUrl}}/posts?sender=Emily
 
 ### Get post by id
 # replace with a real id from one of the create responses
-GET {{baseUrl}}/posts/SOME_ID
+GET {{baseUrl}}/posts/691884fdf382a01bfec990f4
 
 ###
 
 ### Update post (change message by Emily)
-PUT {{baseUrl}}/posts/SOME_ID
+PUT {{baseUrl}}/posts/691884fdf382a01bfec990f4
 Content-Type: application/json
 
 {
   "sender": "Emily",
   "message": "Updated message from Emily"
 }
+
+
+
+
+################################################################################################
+### COMMENTS – Dotan
+################################################################################################
+
+### Create new comment (Dotan)
+POST {{baseUrl}}/comments/6918a228d4e3d6225a4e2793
+Content-Type: application/json
+
+{
+  "sender": "Dotan",
+  "message": "This is my first comment"
+}
+
+###
+
+### Create another comment (Emily)
+POST {{baseUrl}}/comments/691886656f4b34eec2d6acd9
+Content-Type: application/json
+
+{
+  "sender": "Emily",
+  "message": "This is my second comment"
+}
+
+###
+
+### Get all comments for a post
+GET {{baseUrl}}/comments?postId=6918a228d4e3d6225a4e2793
+
+###
+
+### Get comment by id
+GET {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
+
+###
+
+### Update comment (change message by Dotan)
+PUT {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
+Content-Type: application/json
+
+{
+  "sender": "Dotan",
+  "message": "Updated message from Dotan"
+}
+
+###
+
+### Delete comment (Dotan)
+DELETE {{baseUrl}}/comments/69189ff834eef0c32c9bb18e
+
+###
