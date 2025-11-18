@@ -1,4 +1,5 @@
 const Comment = require('../models/comment_model');
+const Post = require('../models/post_model');
 
 const createComment = async (req, res) => {
     try {
@@ -7,6 +8,12 @@ const createComment = async (req, res) => {
 
     if (!sender || !message) {
         return res.status(400).json({ error: "sender and message are required" }); // 400: Bad Request
+    }
+
+    // Check if the post exists
+    const post = await Post.findById(id);
+    if (!post) {
+        return res.status(404).json({ error: "post not found" }); // 404: Not Found
     }
 
     const newComment = new Comment({ postId: id, sender, message });
